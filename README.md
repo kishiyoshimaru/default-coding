@@ -6,8 +6,30 @@ Webページ作成を行うときの基本環境
 必ずルールに従って作業し、そのルールをREADMEに記載するため。
 
 ## 環境
-node: 12.4.0
-npm: 6.9.0
+node: 12.4.0  
+npm: 6.9.0  
+(説明ではエディターとしてVSCodeを仮定)
 
 ## できること
-editorconfigでインデントを設定する。
+editorconfigでインデントを設定する。  
+pugを記述し、コンパイルすることでHTMLを書き出せる。
+
+```
+$ npm install
+```
+
+ESLint, stylelintの拡張機能をインストール。  
+以下を設定することでESLint, stylelintの自動修正をONにできる。  
+自動修正時には、Prettierも実行する。
+
+```
+"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+},
+```
+
+以下実行でpugがコンパイルされる。
+```
+$ npm run build
+```

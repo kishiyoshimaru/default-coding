@@ -1,0 +1,32 @@
+doctype html
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="format-detection" content="telephone=no")
+
+    //- ページ情報
+    title ページタイトル
+    meta(name="description" content="ディスクリプション")
+
+    //- OG系
+    meta(property="og:locale" content="ja_JP")
+    meta(property="og:type" content="「website」または「article」")
+    meta(property="og:site_name" content="サイト名")
+    meta(property="og:url" content="ページURL")
+    meta(property="og:title" content="ページタイトル")
+    meta(property="og:description" content="ディスクリプション")
+    meta(property="og:image" content="OGイメージのフルパス")
+    meta(name="twitter:card" content="summary_large_image")
+
+    //- アイコン系
+    link(rel="apple-touch-icon" href="iOSとAndoidのホーム画面用画像のパス（180x180）")
+    link(rel="icon" type="image/png" sizes="64x64" href="favicon小（PNG形式）のパス")
+    link(rel="icon" type="image/png" sizes="192x192" href="favicon大（PNG形式）のパス")
+
+    //- 外部ファイル
+    link(rel="stylesheet" href="/assets/css/style.css")
+    script(src="/assets/js/index.js")
+  body
+    include section/_header.pug
+    include section/_footer.pug
