@@ -14,6 +14,16 @@ npm: 6.9.0
 editorconfigでインデントを設定する。  
 pugを記述し、コンパイルすることでHTMLを書き出せる。
 
+## ディレクトリ
+.
++-- _src
+|   +-- pug _つきは、includeされるのみでコンパイルしないファイル。
+|       +-- index.pug
++-- dist
+|   +-- index.html
++-- 設定ファイル各種
+
+## コマンド
 ```
 $ npm install
 ```
