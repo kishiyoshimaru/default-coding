@@ -14,13 +14,16 @@
     "url": "https://github.com/kishiyoshimaru/default-coding"
   },
   "devDependencies": {
+    "anymatch": "^3.1.1",
     "autoprefixer": "^9.8.0",
+    "braces": "^3.0.2",
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-ejs": "^5.1.0",
     "gulp-plumber": "^1.2.1",

@@ -4,6 +4,7 @@ const gulp = require('gulp');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
+const cleanCss = require('gulp-clean-css');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const postcss = require('gulp-postcss');
@@ -45,6 +46,7 @@ function compileScss() {
     .pipe(sassGlob())
     .pipe(sass({ outputStyle: 'expanded' }))
     .pipe(postcss([autoprefixer()]))
+    .pipe(cleanCss())
     .pipe(gulp.dest(`${path.destDir}/${path.dest.css}`));
 }
 
