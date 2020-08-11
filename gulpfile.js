@@ -77,6 +77,7 @@ function watch() {
     `${path.srcDir}/${path.src.css}/*`,
     gulp.series(compileScss, reload)
   );
+  gulp.watch(`${path.srcDir}/${path.src.js}/*`, gulp.series(compileJs, reload));
 }
 
 exports.build = gulp.parallel(compilePug, compileScss, compileJs);
