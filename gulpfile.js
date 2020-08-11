@@ -4,6 +4,8 @@ const gulp = require('gulp');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
 const postcss = require('gulp-postcss');
 const plumber = require('gulp-plumber');
 const autoprefixer = require('autoprefixer');
@@ -46,6 +48,16 @@ function compileScss() {
     .pipe(gulp.dest(`${path.destDir}/${path.dest.css}`));
 }
 
+// JS
+function compileJs() {
+  return gulp
+    .src(`${path.srcDir}/${path.src.js}/*.js`)
+    .pipe(plumber())
+    .pipe(concat('main.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(`${path.destDir}/${path.dest.js}`));
+}
+
 // ホットリロード
 function sync() {
   browserSync.init({
@@ -67,5 +79,5 @@ function watch() {
   );
 }
 
-exports.build = gulp.parallel(compilePug, compileScss);
+exports.build = gulp.parallel(compilePug, compileScss, compileJs);
 exports.watch = gulp.parallel(sync, watch);
