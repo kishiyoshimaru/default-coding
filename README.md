@@ -14,34 +14,41 @@ npm: 6.9.0
 editorconfigでインデントを設定する。  
 pugを記述し、コンパイルすることでHTMLを書き出せる。  
 scssを記述し、コンパイルすることでCSSを書き出せる。  
-jsを機能ごとに記述し、コンパイルすることで結合しminifyして書き出せる。
+jsを機能ごとに記述し、コンパイルすることで結合しminifyして書き出せる。  
+画像を圧縮できる。
 
 ## ディレクトリ
 ```
 .
 ├── _src
-│   ├── js // 機能ごとにファイルを分けて記述
-│   │   └── scrollShowButton.js
 │   ├── pug // _(アンダーバー)つきは、includeされるのみでコンパイルしないファイル。
 │   │   ├── index.pug
 │   │   └── section
 │   │       ├── _header.pug
 │   │       └── _footer.pug
-│   └── scss
-│       ├── foundation
-│       │   ├── _sanitize.scss // https://csstools.github.io/sanitize.css/
-│       │   ├── _base.scss
-│       │   ├── _mixins.scss
-│       │   └── _variables.scss
-│       ├── layout
-│       │   └── _layout.scss
-│       └── style.scss
+│   ├── scss
+│   │   ├── foundation
+│   │   │   ├── _sanitize.scss // https://csstools.github.io/sanitize.css/
+│   │   │   ├── _base.scss
+│   │   │   ├── _mixins.scss
+│   │   │   └── _variables.scss
+│   │   ├── layout
+│   │   │   └── _layout.scss
+│   │   └── style.scss
+│   ├── js // 機能ごとにファイルを分けて記述
+│   │   └── scrollShowButton.js
+│   └── image
+│       ├── *.jpg // 写真はjpg
+│       └── *.png // イラストはpng
 ├── dist
 │   ├── assets
 │   │   ├── css
 │   │   │   └── style.css
-│   │   └── js
-│   │       └── main.js
+│   │   ├── js
+│   │   │   └── main.js
+│   │   └── image // 圧縮された画像
+│   │       ├── *.jpg
+│   │       └── *.png
 │   └── index.html
 └── 設定ファイル各種
 ```
