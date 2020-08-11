@@ -38,8 +38,8 @@ jsを機能ごとに記述し、コンパイルすることで結合しminifyし
 │   ├── js // 機能ごとにファイルを分けて記述
 │   │   └── scrollShowButton.js
 │   └── image
-│       ├── *.jpg // 写真はjpg
-│       └── *.png // イラストはpng
+│       ├── *.jpg // ファイルサイズを小さくしたいものはjpg
+│       └── *.png // 透過したいものはpng
 ├── dist
 │   ├── assets
 │   │   ├── css
