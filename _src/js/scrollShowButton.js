@@ -1,4 +1,4 @@
-var floatButton = document.getElementsByClassName('.float-link');
+const floatButton = document.getElementsByClassName('.float-link');
 floatButton.style.display = 'none';
 
 window.onscroll = function () {

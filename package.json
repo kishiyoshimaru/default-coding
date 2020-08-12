@@ -14,8 +14,11 @@
     "url": "https://github.com/kishiyoshimaru/default-coding"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
     "anymatch": "^3.1.1",
     "autoprefixer": "^9.8.0",
+    "babel-preset-minify": "^0.5.1",
     "braces": "^3.0.2",
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
@@ -23,6 +26,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-ejs": "^5.1.0",
@@ -32,7 +36,6 @@
     "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.1.0",
     "gulp-sass-glob": "^1.1.0",
-    "gulp-uglify": "^3.0.2",
     "gulp-watch": "^5.0.1",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-pngquant": "^9.0.0",

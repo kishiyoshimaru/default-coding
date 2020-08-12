@@ -7,8 +7,8 @@ const sassGlob = require('gulp-sass-glob');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cleanCss = require('gulp-clean-css');
+const babel = require('gulp-babel');
 const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 const mozjpeg = require('imagemin-mozjpeg');
@@ -59,7 +59,7 @@ function compileJs() {
     .src(`${path.srcDir}/${path.src.js}/*.js`)
     .pipe(plumber())
     .pipe(concat('main.js'))
-    .pipe(uglify())
+    .pipe(babel())
     .pipe(gulp.dest(`${path.destDir}/${path.dest.js}`));
 }
 
