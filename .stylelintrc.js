@@ -1,6 +1,7 @@
 module.exports = {
   extends: [
-    "stylelint-config-recommended-scss",
-    "stylelint-prettier/recommended"
+    'stylelint-config-recess-order',
+    'stylelint-config-recommended-scss',
+    'stylelint-prettier/recommended'
   ],
 };
