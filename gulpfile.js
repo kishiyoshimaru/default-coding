@@ -100,16 +100,19 @@ function reload(done) {
 }
 function watch() {
   gulp.watch(
-    `${path.srcDir}/${path.src.html}/*`,
+    `${path.srcDir}/${path.src.html}/**/*`,
     gulp.series(compilePug, reload)
   );
   gulp.watch(
-    `${path.srcDir}/${path.src.css}/*`,
+    `${path.srcDir}/${path.src.css}/**/*`,
     gulp.series(compileScss, reload)
   );
-  gulp.watch(`${path.srcDir}/${path.src.js}/*`, gulp.series(compileJs, reload));
   gulp.watch(
-    `${path.srcDir}/${path.src.image}/*`,
+    `${path.srcDir}/${path.src.js}/**/*`,
+    gulp.series(compileJs, reload)
+  );
+  gulp.watch(
+    `${path.srcDir}/${path.src.image}/**/*`,
     gulp.series(minifyImage, reload)
   );
 }
