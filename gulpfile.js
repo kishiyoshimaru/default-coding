@@ -6,6 +6,7 @@ const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
+const mqpacker = require('css-mqpacker');
 const cleanCss = require('gulp-clean-css');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
@@ -43,6 +44,7 @@ function compileScss() {
     .pipe(plumber())
     .pipe(sassGlob())
     .pipe(sass({ outputStyle: 'expanded' }))
+    .pipe(postcss[mqpacker()])
     .pipe(postcss([autoprefixer()]))
     .pipe(cleanCss())
     .pipe(gulp.dest(`${path.destDir}/${path.dest.css}`));
