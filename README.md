@@ -15,7 +15,6 @@ editorconfigでインデントを設定する。
 pugを記述し、コンパイルすることでHTMLを書き出せる。  
 scssを記述し、コンパイルすることでCSSを書き出せる。  
 jsを機能ごとに記述し、コンパイルすることで結合しminifyして書き出せる。  
-画像を圧縮できる。
 
 ## ディレクトリ
 ```
@@ -35,20 +34,16 @@ jsを機能ごとに記述し、コンパイルすることで結合しminifyし
 │   │   ├── layout
 │   │   │   └── _layout.scss
 │   │   └── style.scss
-│   ├── js // 機能ごとにファイルを分けて記述
-│   │   └── scrollShowButton.js
-│   └── image
-│       ├── *.jpg // ファイルサイズを小さくしたいものはjpg
-│       └── *.png // 透過したいものはpng
+│   └── js // 機能ごとにファイルを分けて記述
+│       └── scrollShowButton.js
 ├── dist
 │   ├── assets
 │   │   ├── css
 │   │   │   └── style.css
 │   │   ├── js
 │   │   │   └── main.js
-│   │   └── image // 圧縮された画像
-│   │       ├── *.jpg
-│   │       └── *.png
+│   │   └── image // 画像は直接配置
+│   │       └── *
 │   └── index.html
 └── 設定ファイル各種
 ```

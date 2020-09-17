@@ -9,9 +9,6 @@ const autoprefixer = require('autoprefixer');
 const cleanCss = require('gulp-clean-css');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
-const imagemin = require('gulp-imagemin');
-const pngquant = require('imagemin-pngquant');
-const mozjpeg = require('imagemin-mozjpeg');
 const plumber = require('gulp-plumber');
 const browserSync = require('browser-sync').create();
 
@@ -21,14 +18,12 @@ const path = {
     html: 'pug',
     css: 'scss',
     js: 'js',
-    image: 'image',
   },
   destDir: './dist',
   dest: {
     html: '',
     css: 'assets/css',
     js: 'assets/js',
-    image: 'assets/image',
   },
   baseDir: './dist', // browser-syncのbaseDir
 };
@@ -63,31 +58,6 @@ function compileJs() {
     .pipe(gulp.dest(`${path.destDir}/${path.dest.js}`));
 }
 
-// 画像
-function minifyImage() {
-  return gulp
-    .src(`${path.srcDir}/${path.src.image}/*`)
-    .pipe(plumber())
-    .pipe(
-      imagemin([
-        pngquant({
-          quality: [0.65, 0.8],
-          speed: 1,
-        }),
-        mozjpeg({
-          quality: 80,
-        }),
-        imagemin.gifsicle({
-          interlaced: false,
-        }),
-        imagemin.svgo({
-          plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
-        }),
-      ])
-    )
-    .pipe(gulp.dest(`${path.destDir}/${path.dest.image}`));
-}
-
 // ホットリロード
 function sync() {
   browserSync.init({
@@ -111,11 +81,7 @@ function watch() {
     `${path.srcDir}/${path.src.js}/**/*`,
     gulp.series(compileJs, reload)
   );
-  gulp.watch(
-    `${path.srcDir}/${path.src.image}/**/*`,
-    gulp.series(minifyImage, reload)
-  );
 }
 
-exports.build = gulp.parallel(compilePug, compileScss, compileJs, minifyImage);
+exports.build = gulp.parallel(compilePug, compileScss, compileJs);
 exports.watch = gulp.parallel(sync, watch);
