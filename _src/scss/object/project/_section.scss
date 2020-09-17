@@ -1,0 +1,11 @@
+.section {
+  width: 100%;
+}
+.section__inner {
+  $horizontal-padding: 30px;
+  width: 100%;
+  max-width: 800px + $horizontal-padding * 2;
+  padding: 0 $horizontal-padding;
+  margin-right: auto;
+  margin-left: auto;
+}

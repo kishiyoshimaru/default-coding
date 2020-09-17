@@ -1,6 +1,1 @@
-'use strict';
-const floatButton = document.getElementsByClassName('.float-link');
-(floatButton.style.display = 'none'),
-  (window.onscroll = function () {
-    floatButton.style.display = 100 < this.scrollTop ? '' : 'none';
-  });
+"use strict";var floatButton=document.getElementsByClassName(".float-link");floatButton.style.display="none",window.onscroll=function(){floatButton.style.display=100<this.scrollTop?"":"none"};
