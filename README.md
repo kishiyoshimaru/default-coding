@@ -27,7 +27,7 @@ jsを機能ごとに記述し、コンパイルすることで結合しminifyし
 │   │       └── _footer.pug
 │   ├── scss
 │   │   ├── foundation
-│   │   │   ├── _sanitize.scss // https://csstools.github.io/sanitize.css/
+│   │   │   ├── _reset.scss // http://html5doctor.com/html-5-reset-stylesheet/
 │   │   │   ├── _base.scss
 │   │   │   ├── _mixins.scss
 │   │   │   └── _variables.scss
@@ -65,6 +65,11 @@ ESLint, stylelintの拡張機能をインストール。
     "source.fixAll.stylelint": true
 },
 ```
+
+### 変更する箇所
+.browserslistrc 必要に応じて変更
+gulpfile.js pathを変更
+.editorconfig, .prettierrc.js こだわりがあれば変更
 
 ### ビルド
 下記コマンド実行でpug, scss, jsがコンパイルされる。
