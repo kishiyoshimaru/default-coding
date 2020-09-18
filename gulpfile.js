@@ -14,7 +14,7 @@ const plumber = require('gulp-plumber');
 const browserSync = require('browser-sync').create();
 
 const path = {
-  srcDir: './_src',
+  srcDir: './src',
   src: {
     html: 'pug',
     css: 'scss',
