@@ -30,7 +30,7 @@ const path = {
 };
 
 // HTML
-function compilePug() {
+function buildPug() {
   return gulp
     .src(`${path.srcDir}/${path.src.html}/*.pug`)
     .pipe(pug({ pretty: 2 }))
@@ -38,20 +38,19 @@ function compilePug() {
 }
 
 // CSS
-function compileScss() {
+function buildScss() {
   return gulp
     .src(`${path.srcDir}/${path.src.css}/*.scss`)
     .pipe(plumber())
     .pipe(sassGlob())
     .pipe(sass({ outputStyle: 'expanded' }))
-    .pipe(postcss[mqpacker()])
-    .pipe(postcss([autoprefixer()]))
+    .pipe(postcss([mqpacker(), autoprefixer()]))
     .pipe(cleanCss())
     .pipe(gulp.dest(`${path.destDir}/${path.dest.css}`));
 }
 
 // JS
-function compileJs() {
+function buildJs() {
   return gulp
     .src(`${path.srcDir}/${path.src.js}/*.js`)
     .pipe(plumber())
@@ -73,17 +72,17 @@ function reload(done) {
 function watch() {
   gulp.watch(
     `${path.srcDir}/${path.src.html}/**/*`,
-    gulp.series(compilePug, reload)
+    gulp.series(buildPug, reload)
   );
   gulp.watch(
     `${path.srcDir}/${path.src.css}/**/*`,
-    gulp.series(compileScss, reload)
+    gulp.series(buildScss, reload)
   );
   gulp.watch(
     `${path.srcDir}/${path.src.js}/**/*`,
-    gulp.series(compileJs, reload)
+    gulp.series(buildJs, reload)
   );
 }
 
-exports.build = gulp.parallel(compilePug, compileScss, compileJs);
+exports.build = gulp.parallel(buildPug, buildScss, buildJs);
 exports.watch = gulp.parallel(sync, watch);
