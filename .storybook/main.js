@@ -1,7 +1,9 @@
 const { resolve } = require('path')
 
+// 
+
 module.exports = {
-  stories: ['../stories/*.stories.js'],
+  stories: ['../src/pug/stories/**/*.stories.js'],
   webpackFinal: async(config, {configType}) => {
     config.module.rules.push({
       test: /\.scss$/,

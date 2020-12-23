@@ -1,5 +1,13 @@
-@include desktop {
-  .sp {
-    display: none;
-  }
+header {
+  padding: 40px;
+  background-color: #ffacac;
+}
+
+main {
+  background-color: #aaaaff;
+}
+
+footer {
+  padding: 20px;
+  background-color: #b5ffb5;
 }
