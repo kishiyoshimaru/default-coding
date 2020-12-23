@@ -27,7 +27,7 @@ jsを機能ごとに記述し、コンパイルすることで結合しminifyし
 │   │       └── _footer.pug
 │   ├── scss
 │   │   ├── foundation
-│   │   │   ├── _reset.scss // http://html5doctor.com/html-5-reset-stylesheet/
+│   │   │   ├── _destyle.scss // https://github.com/nicolas-cusan/destyle.css/blob/master/destyle.css
 │   │   │   ├── _base.scss
 │   │   │   ├── _mixins.scss
 │   │   │   └── _variables.scss

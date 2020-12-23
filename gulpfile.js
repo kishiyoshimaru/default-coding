@@ -12,6 +12,7 @@ const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const plumber = require('gulp-plumber');
 const browserSync = require('browser-sync').create();
+const packageImporter = require('node-sass-package-importer');
 
 const path = {
   srcDir: './src',
@@ -43,7 +44,14 @@ function buildScss() {
     .src(`${path.srcDir}/${path.src.css}/*.scss`)
     .pipe(plumber())
     .pipe(sassGlob())
-    .pipe(sass({ outputStyle: 'expanded' }))
+    .pipe(
+      sass({
+        importer: packageImporter({
+          extensions: ['.scss', '.css'],
+        }),
+        outputStyle: 'expanded',
+      })
+    )
     .pipe(postcss([mqpacker(), autoprefixer()]))
     .pipe(cleanCss())
     .pipe(gulp.dest(`${path.destDir}/${path.dest.css}`));
