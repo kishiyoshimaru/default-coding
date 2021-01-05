@@ -1,25 +1,19 @@
 import { configure, storiesOf} from '@storybook/html';
-const path = require('path')
-// const pugContext = require.context(resolve(__dirname, '../src/pug/stories/'), true, /\.stories\.pug$/);
-const pathStr = 'components/button.stories.pug'
-const ext = path.extname(pathStr)
-// const dirName = path.dirname(pathStr) !== '.' ? path.dirname(pathStr).replace('./','') : 'Others'
-const dirName = 'Others'
-// const filePath = path.dirname(pathStr) !== '.' ? `${dirName}/${path.basename(pathStr)}` : path.basename(pathStr)
-const filePath = "test"
-// const fileName = path.basename(pathStr.replace('.stories',''),`${ext}`)
-const fileName = "button"
-// const pugSrc = require(`../src/pug/stories/${filePath}`);
+import '../src/scss/style.scss';
+const path = require('path');
+const ext = '.pug';
 
-const html = require('!html-loader!pug-plain-loader!../src/pug/stories/components/button.pug');
-storiesOf( dirName , module)
-  .add( fileName , () => {
-    return html;
-  });
-  
+const storiesList = require.context('html-loader!pug-plain-loader!../src/stories/', true, /\.stories\.pug$/); // 本当はここでloaderを噛ませる必要はないのだが、pugをそのまま読み込むとwarningが出るためloaderを噛ませる
 
+storiesList.keys().forEach(function(storyPath) {
+  const dirName = path.dirname(storyPath) !== '.' ? path.dirname(storyPath).replace('./','') : 'Others';
+  const filePath = path.dirname(storyPath) !== '.' ? `${dirName}/${path.basename(storyPath)}` : path.basename(storyPath);
+  const fileName = path.basename(storyPath.replace('.stories',''),`${ext}`);
+  // const pugSrc = require(`../src/stories/${filePath}`);
+  const html = require(`html-loader!pug-plain-loader!../src/stories/${filePath}`);
 
-// export default {
-//   title: `${filePath}`,
-//   component: Template,
-// };
+  storiesOf(dirName, module)
+    .add(fileName, () => {
+      return html;
+    });
+});

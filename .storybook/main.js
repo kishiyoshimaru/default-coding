@@ -1,9 +1,7 @@
 const { resolve } = require('path')
 
-// 
-
 module.exports = {
-  stories: ['../src/pug/stories/**/*.stories.js'],
+  stories: ['../src/stories/**/*.stories.js'], // ファイルは読み込まないが、この記述がないと動作しない
   webpackFinal: async(config, {configType}) => {
     config.module.rules.push({
       test: /\.scss$/,
