@@ -1,5 +1,5 @@
-@include desktop {
-  .sp {
+.sp {
+  @include desktop {
     display: none;
   }
 }
