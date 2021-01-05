@@ -1,13 +1,13 @@
-// ブレイクポイント以下の画面幅になったときのスタイルを記述する
-@mixin mobile {
-  @media screen and (max-width: $breakpoint) {
+// PCデザイン
+@mixin desktop {
+  @media screen and (min-width: $breakpoint), print {
     @content;
   }
 }
 
-// ブレイクポイント以上の画面幅になったときのスタイルを記述する
-@mixin desktop {
-  @media screen and (min-width: $breakpoint + 1) {
+// SPデザイン
+@mixin mobile {
+  @media screen and (max-width: $breakpoint - 1) {
     @content;
   }
 }

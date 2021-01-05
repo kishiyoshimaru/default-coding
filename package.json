@@ -16,6 +16,7 @@
     "@babel/preset-env": "^7.11.0",
     "@storybook/html": "^6.1.11",
     "autoprefixer": "^9.8.0",
+    "babel-loader": "^8.2.2",
     "babel-preset-minify": "^0.5.1",
     "browser-sync": "^2.26.7",
     "core-js": "^3.8.1",
@@ -25,7 +26,6 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-ejs": "^5.1.0",
@@ -51,6 +51,8 @@
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-prettier": "^1.1.2",
-    "stylelint-scss": "^3.18.0"
+    "stylelint-scss": "^3.18.0",
+    "webpack": "^5.11.1",
+    "webpack-stream": "^6.1.1"
   }
 }

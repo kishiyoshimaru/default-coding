@@ -5,3 +5,8 @@ body {
   line-height: $base-line-height;
   color: $base-font-color;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}

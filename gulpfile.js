@@ -8,8 +8,8 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const mqpacker = require('css-mqpacker');
 const cleanCss = require('gulp-clean-css');
-const babel = require('gulp-babel');
-const concat = require('gulp-concat');
+const webpackStream = require('webpack-stream');
+const webpack = require('webpack');
 const plumber = require('gulp-plumber');
 const browserSync = require('browser-sync').create();
 const packageImporter = require('node-sass-package-importer');
@@ -59,12 +59,27 @@ function buildScss() {
 
 // JS
 function buildJs() {
-  return gulp
-    .src(`${path.srcDir}/${path.src.js}/*.js`)
-    .pipe(plumber())
-    .pipe(concat('main.js'))
-    .pipe(babel())
-    .pipe(gulp.dest(`${path.destDir}/${path.dest.js}`));
+  return webpackStream(
+    {
+      mode: 'production',
+      entry: `${path.srcDir}/${path.src.js}/main.js`,
+      output: {
+        filename: 'main.js',
+      },
+      module: {
+        rules: [
+          {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+              loader: 'babel-loader',
+            },
+          },
+        ],
+      },
+    },
+    webpack
+  ).pipe(gulp.dest(`${path.destDir}/${path.dest.js}`));
 }
 
 // ホットリロード
