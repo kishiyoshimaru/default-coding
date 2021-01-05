@@ -22,12 +22,12 @@ jsを機能ごとに記述し、コンパイルすることで結合しminifyし
 ├── src
 │   ├── pug // _(アンダーバー)つきは、includeされるのみでコンパイルしないファイル。
 │   │   ├── index.pug
-│   │   └── section
+│   │   └── parts
 │   │       ├── _header.pug
 │   │       └── _footer.pug
 │   ├── scss
 │   │   ├── foundation
-│   │   │   ├── _reset.scss // http://html5doctor.com/html-5-reset-stylesheet/
+│   │   │   ├── _destyle.scss // https://github.com/nicolas-cusan/destyle.css
 │   │   │   ├── _base.scss
 │   │   │   ├── _mixins.scss
 │   │   │   └── _variables.scss
@@ -35,14 +35,16 @@ jsを機能ごとに記述し、コンパイルすることで結合しminifyし
 │   │   │   └── _layout.scss
 │   │   └── style.scss
 │   └── js // 機能ごとにファイルを分けて記述
-│       └── scrollShowButton.js
+│       ├── main.js
+│       └── modules
+│           └── scrollShowButton.js
 ├── dist
 │   ├── assets
 │   │   ├── css
 │   │   │   └── style.css
 │   │   ├── js
 │   │   │   └── main.js
-│   │   └── image // 画像は直接配置
+│   │   └── images // 画像は直接配置
 │   │       └── *
 │   └── index.html
 └── 設定ファイル各種
@@ -55,16 +57,13 @@ $ npm install
 ```
 
 ### VSCodeの設定
-ESLint, stylelintの拡張機能をインストール。  
-以下を設定することで、保存時のESLint, stylelintの自動修正をONにできる。  
-自動修正時には、Prettierも実行する。
+以下の拡張機能をインストールすることを推奨します。
 
-```
-"editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
-},
-```
+- ESLint
+- stylelint
+- Code Spell Checker
+
+設定は.vscode/settings.jsonに記述することで共有します。
 
 ### 変更する箇所
 .browserslistrc 必要に応じて変更
